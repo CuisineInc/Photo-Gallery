@@ -4,11 +4,17 @@ import ImageModal from './ImageModal.jsx';
 const SmallImage = window.styled.img`
   width: 142px;
   margin: 0 0 0 .25rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LargeImage = window.styled.img`
   width: 288px;
   margin: 0 0 0 .25rem;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 class GalleryImage extends React.Component {

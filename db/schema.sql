@@ -1,29 +1,25 @@
-DROP DATABASE IF EXISTS banner_images;
+DROP DATABASE IF EXISTS photo_gallery;
 
-CREATE DATABASE banner_images;
+CREATE DATABASE photo_gallery;
 
-USE banner_images;
+USE photo_gallery;
 
 CREATE TABLE listings (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  listings varchar(5) NOT NULL
+  id int AUTO_INCREMENT PRIMARY KEY,
+  name varchar(100),
+  location varchar(100)
 );
 
 CREATE TABLE images (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  url varchar(2083) NOT NULL UNIQUE,
-  description varchar(255),
-  user_submit boolean,
+  id int AUTO_INCREMENT PRIMARY KEY,
+  listing_id int,
+  image_url varchar(100),
+  description varchar(100),
   date date,
+  user_submit boolean,
   unrelated_flag int,
   inappropriate_flag int,
   dislike_flag int
 );
 
-CREATE TABLE listings_images (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  listing_id int NOT NULL,
-  image_id int NOT NULL,
-  FOREIGN KEY (listing_id) REFERENCES listings(id),
-  FOREIGN KEY (image_id) REFERENCES images(id)
-)
+ALTER TABLE images ADD FOREIGN KEY (listing_id) REFERENCES listings(id);

@@ -7,7 +7,7 @@ const port = 3001;
 
 app.use(compression());
 app.use(express.static('public'));
-app.use('/:listing', express.static('public'));
+// app.use('/:listing', express.static('public'));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -20,5 +20,7 @@ app.get('/api/:listing', (req, res) => {
     res.send(images);
   });
 });
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
