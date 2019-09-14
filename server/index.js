@@ -1,24 +1,31 @@
 const express = require('express');
-const compression = require('compression')
-const db = require('../db/index.js');
-
 const app = express();
-const port = 3001;
+const controller = require('./controllers')
+const cors = require('cors')
+const compression = require('compression')
+
+const port = 5000;
 
 app.use(compression());
+
+app.use(cors())
+
 app.use(express.static('public'));
-app.use('/:listing', express.static('public'));
 
-app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
+app.get('/api/restaurants/:id/images', controller.getImages);
+// api/restaurants/:id/images
 
-app.get('/api/:listing', (req, res) => {
-  db.getImagesFromListing(req.params.listing, (error, images) => {
-    if (error) { return error; }
-    res.send(images);
-  });
-});
+app.get('/api/images/:id', controller.getImage);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.post('/api/images', controller.insertImage);
+
+app.put('/api/images/:id', controller.updateImage);
+
+app.delete('/api/restaurants/:id/images', controller.deleteImages);
+// api/restaurants/:id/images
+
+app.delete('/api/images/:id', controller.deleteImage);
+
+
+
+app.listen(port, () => console.log(`App is listening on port ${port}!`));

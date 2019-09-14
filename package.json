@@ -1,8 +1,8 @@
 {
-  "name": "banner-gallery",
+  "name": "photo-gallery",
   "version": "1.0.0",
   "description": "",
-  "author": "Alvin Lo",
+  "author": "Soukpafolo Soro",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
@@ -10,16 +10,19 @@
   "scripts": {
     "build": "npx webpack --config webpack.config.js -d -w",
     "start": "nodemon server/index.js -w",
-    "create": "mysql -u root < ./db/schema.sql",
-    "seed": "node ./db/seed.js",
+    "create": "psql -d photo_gallery -U root -a -f ./database/schema.sql",
+    "seed": "node ./database/seed.js",
     "test": "jest --coverage --verbose"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "compression": "^1.7.4",
+    "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "json2csv": "^4.5.3",
     "mysql": "^2.17.1",
+    "pg-promise": "^9.1.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "styled-components": "^4.3.2"

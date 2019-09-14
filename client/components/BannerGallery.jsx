@@ -49,7 +49,7 @@ class BannerGallery extends React.Component {
     let listing = url.slice(1, -1);
 
     if (Number(listing.slice(1)) <= 0 || Number(listing.slice(1)) >= 100) {
-      listing = 'L1';
+      listing = 'L2';
     }
 
     axios.get(`http://54.241.154.11:3001/api/${listing}`)
