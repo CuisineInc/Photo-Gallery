@@ -44,7 +44,7 @@ function createImages (writer, encoding, callback) {
       i -= 1;
       id += 1;
       for(var j = 0; j < 20; j++) {
-        const listingId = id;
+        const restaurantId = id;
         const randomImage = faker.random.number({min:1, max:500});
         const imageUrl = `https://sdc-photo-gallery.s3-us-west-1.amazonaws.com/${randomImage}.jpg`;
         const description = faker.lorem.sentence();
@@ -53,7 +53,7 @@ function createImages (writer, encoding, callback) {
         const unrelatedFlag = 0;
         const inappropriateFlag = 0;
         const dislikeFlag = 0;
-        const data = `${listingId}, ${imageUrl}, ${description}, ${date}, ${userSubmit}, ${unrelatedFlag}, ${inappropriateFlag}, ${dislikeFlag}\n`;
+        const data = `${restaurantId}, ${imageUrl}, ${description}, ${date}, ${userSubmit}, ${unrelatedFlag}, ${inappropriateFlag}, ${dislikeFlag}\n`;
         if (i === 0) {
           writer.write(data, encoding, callback)
         } else {
