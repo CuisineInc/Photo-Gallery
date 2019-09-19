@@ -13,7 +13,7 @@ const SlideshowImage = ({ image, openReportImagePopup }) => {
 
   return (
     <ImageContainer image={image}>
-      <Image src={image.url}></Image>
+      <Image src={image.image_url}></Image>
       <ImageFooter
         image={image}
         openReportImagePopup={openReportImagePopup}

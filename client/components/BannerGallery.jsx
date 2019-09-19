@@ -46,13 +46,8 @@ class BannerGallery extends React.Component {
 
   componentDidMount() {
     let url = window.location.pathname;
-    let listing = url.slice(1, -1);
-
-    if (Number(listing.slice(1)) <= 0 || Number(listing.slice(1)) >= 100) {
-      listing = 'L2';
-    }
-
-    axios.get(`http://54.241.154.11:3001/api/${listing}`)
+    let restaurant = url.slice(1, -1);
+    axios.get(`/api/restaurants/${restaurant}/images`)
       .then((res) => {
         this.setState({
           images: res.data
@@ -121,17 +116,17 @@ class BannerGallery extends React.Component {
           }
         </div>
         {
-          this.state.images.slice(2, 3).map((image, i) =>
+          this.state.images.slice(2, 4).map((image, i) =>
             <GalleryImage
               key={i}
-              imageSize={'large'}
+              imageSize={'small'}
               image={image}
               openModal={this.openModal}
             />)
         }
         <div>
           {
-            this.state.images.slice(3, 5).map((image, i) =>
+            this.state.images.slice(4, 6).map((image, i) =>
               <GalleryImage
                 key={i}
                 imageSize={'small'}
@@ -141,17 +136,17 @@ class BannerGallery extends React.Component {
           }
         </div>
         {
-          this.state.images.slice(5, 6).map((image, i) =>
+          this.state.images.slice(6, 8).map((image, i) =>
             <GalleryImage
               key={i}
-              imageSize={'large'}
+              imageSize={'small'}
               image={image}
               openModal={this.openModal}
             />)
         }
         <div>
           {
-            this.state.images.slice(6, 8).map((image, i) =>
+            this.state.images.slice(8, 10).map((image, i) =>
               <GalleryImage
                 key={i}
                 imageSize={'small'}
@@ -161,23 +156,41 @@ class BannerGallery extends React.Component {
           }
         </div>
         {
-          this.state.images.slice(8, 9).map((image, i) =>
+          this.state.images.slice(10, 12).map((image, i) =>
             <GalleryImage
               key={i}
-              imageSize={'large'}
+              imageSize={'small'}
               image={image}
               openModal={this.openModal}
             />)
         }
-        {
+        {/* {
           this.state.images.slice(9, 10).map((image, i) =>
             <GalleryImage
               key={i}
-              imageSize={'large'}
+              imageSize={'small'}
               image={image}
               openModal={this.openModal}
             />)
         }
+        {
+          this.state.images.slice(10, 11).map((image, i) =>
+            <GalleryImage
+              key={i}
+              imageSize={'small'}
+              image={image}
+              openModal={this.openModal}
+            />)
+        }
+        {
+          this.state.images.slice(11, 12).map((image, i) =>
+            <GalleryImage
+              key={i}
+              imageSize={'small'}
+              image={image}
+              openModal={this.openModal}
+            />)
+        } */}
       </Gallery>
     );
   }
