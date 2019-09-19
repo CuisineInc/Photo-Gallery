@@ -6,7 +6,7 @@ const writeRestaurants = fs.createWriteStream('database/restaurants.csv')
 
 writeRestaurants.write('restaurant, location\n')
 
-const writeImages = fs.createWriteStream('database/images.csv')
+const writeImages = fs.createWriteStream('/Volumes/easystore/sdc/photo-gallery/images1.csv')
 
 writeImages.write('restaurantId, imageUrl, description, date, userSubmit, unrelatedFlag, inappropriateFlag, dislikeFlag\n')
 
@@ -43,7 +43,7 @@ function createImages (writer, encoding, callback) {
     do {
       i -= 1;
       id += 1;
-      for(var j = 0; j < 20; j++) {
+      for(var j = 0; j < 15; j++) {
         const restaurantId = id;
         const randomImage = faker.random.number({min:1, max:500});
         const imageUrl = `https://sdc-photo-gallery.s3-us-west-1.amazonaws.com/${randomImage}.jpg`;

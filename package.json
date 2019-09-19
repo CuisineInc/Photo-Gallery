@@ -10,8 +10,9 @@
   "scripts": {
     "build": "npx webpack --config webpack.config.js -d -w",
     "start": "nodemon server/index.js -w",
-    "create": "psql -d photo_gallery -U root -a -f ./database/schema.sql",
-    "seed": "node ./database/seed.js",
+    "schema": "psql -d photo_gallery -U root -a -f ./database/schema.sql",
+    "create": "node ./database/seed.js",
+    "seed": "psql -d photo_gallery -U root && copy images(restaurant_id, image_url, description, date, user_submit, unrelated_flag, inappropriate_flag, dislike_flag) from '/Volumes/easystore/sdc/photo-gallery/images1.csv' delimiter ',' csv header",
     "test": "jest --coverage --verbose"
   },
   "dependencies": {

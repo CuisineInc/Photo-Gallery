@@ -18,6 +18,8 @@ create table images (
 
 -- alter table images add foreign key (restaurant_id) references restaurants(id);
 
--- copy restaurants(restaurant, location) from '/Users/sorodidiouf/Photo-Gallery/database/restaurants.csv' delimiter ',' csv header;
+-- to load csv file into restaurants table, execute the following from inise the psql shell
+-- copy restaurants(restaurant, location) from '/Volumes/easystore/sdc/photo-gallery/restaurants1.csv' delimiter ',' csv header;
 
--- copy images(restaurant_id, image_url, description, date, user_submit, unrelated_flag, inappropriate_flag, dislike_flag) from '/Users/sorodidiouf/Photo-Gallery/database/images.csv' delimiter ',' csv header;
+-- to load csv file into images table, execute the following from inside the sql shell
+-- copy images(restaurant_id, image_url, description, date, user_submit, unrelated_flag, inappropriate_flag, dislike_flag) from '/Volumes/easystore/sdc/photo-gallery/images1.csv' delimiter ',' csv header;
