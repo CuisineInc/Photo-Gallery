@@ -17,11 +17,7 @@ app.use(cors())
 
 app.use(express.static('public'));
 
-
 app.use('/:listing', express.static('public'));
-
-// app.use('/:listing', express.static('public'));
-
 
 app.get('/api/restaurants/:id/images', controller.getImages);
 
