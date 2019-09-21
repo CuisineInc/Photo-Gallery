@@ -12,7 +12,8 @@
     "start": "nodemon server/index.js -w",
     "schema": "psql -d photo_gallery -U root -a -f ./database/schema.sql",
     "create": "node ./database/seed.js",
-    "seed": "psql -d photo_gallery -U root && copy images(restaurant_id, image_url, description, date, user_submit, unrelated_flag, inappropriate_flag, dislike_flag) from '/Volumes/easystore/sdc/photo-gallery/images1.csv' delimiter ',' csv header",
+    "seedImages": "psql -d photo_gallery -U root -c 'copy images(restaurant_id, image_url, description, date, user_submit, unrelated_flag, inappropriate_flag, dislike_flag) from '/Volumes/easystore/sdc/photo-gallery/images1.csv' delimiter ',' csv header'",
+    "seedRestaurants": "psql -d photo_gallery -U root -c 'copy restaurants(restaurant, location) from '/Volumes/easystore/sdc/photo-gallery/restaurants1.csv' delimiter ',' csv header'",
     "test": "jest --coverage --verbose"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "faker": "^4.1.0",
     "json2csv": "^4.5.3",
     "mysql": "^2.17.1",
+    "newrelic": "^5.11.0",
     "pg-promise": "^9.1.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
