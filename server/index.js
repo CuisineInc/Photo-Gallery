@@ -20,6 +20,8 @@ app.use(express.static('public'));
 
 app.use('/:listing', express.static('public'));
 
+app.use('/loaderio-b7166be4c9c295962a2638c2cf37fbf3', express.static('./loaderio-b7166be4c9c295962a2638c2cf37fbf3.txt'))
+
 app.get('/api/restaurants/:id/images', controller.getImages);
 
 app.get('/api/images/:id', controller.getImage);
