@@ -3,7 +3,7 @@
 > Photo Gallery
 
 <div style-align="center" >
-    <img src="Frontend Architecture.png" width="400px"></img>
+    <img src="Backend Architecture.png" width="400px"></img>
 </div>
 
 ## Related Projects
